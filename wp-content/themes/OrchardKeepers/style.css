@@ -943,7 +943,7 @@ body.page-template-page-location-hire-php .slider_wrapper_inner {
     color: #D26053;
 }
 
-.gform_wrapper ul li.gfield input[type="text"] {
+.gform_wrapper ul li.gfield input {
     height: 29px;
     padding: 7px 0 7px 10px;
     line-height: 29px;
