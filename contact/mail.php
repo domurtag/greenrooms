@@ -7,7 +7,7 @@ $myemail = "domurtag@yahoo.co.uk";
 /* Check all form inputs using check_input function */
 $name    = check_input($_POST['name'], "Enter your name");
 $email   = check_input($_POST['email']);
-$subject = "Green Rooms Design feedback from: $email";
+$subject = "Green Rooms Design feedback from: $name, $email";
 $message = check_input($_POST['message'], "Write your message");
 
 /* If e-mail is not valid show error message */
@@ -15,14 +15,14 @@ if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
     show_error("E-mail address not valid");
 }
 /* Let's prepare the message for the e-mail */
-$message = "Name: $name
-E-mail: $email
-Subject: $subject
+$message = "Sender Name: $name
+Sender E-mail: $email
 ----------------------------
 Message:
 $message";
 
-/* Send the message using mail() function */
+// Send the message using mail() function
+// Consider replacing smtpmailer with the PHP native "mail" function if mail is properly setup on the production server
 smtpmailer($myemail, $email, $name, $subject, $message);
 
 /* Redirect visitor to the thank you page */
