@@ -998,22 +998,21 @@ body.page-template-page-location-hire-php .slider_wrapper_inner {
     margin-top: 24px;
 }
 
-.contact_form .gform_wrapper li.gfield.gfield_error, .contact_form .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
+.contact_form .gform_wrapper li.gfield.gfield_error,
+.contact_form .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning {
     padding: 0;
     margin: 0;
     background: none;
     border: 0;
 }
 
-.contact_form .gform_wrapper li.gfield.gfield_error input.medium, .contact_form .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning input.medium {
+.contact_form .gform_wrapper li.gfield input.medium.error,
+.contact_form .gform_wrapper li.gfield.gfield_contains_required.gfield_creditcard_warning input.medium.error {
     background: url(images/bg-input-large-error.png) left top no-repeat;
 }
 
-.contact_form .gform_wrapper li.gfield.gfield_error.name input.medium, .contact_form .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning.name input.medium {
-    background: url(images/bg-input-small-error.png) left top no-repeat;
-}
-
-.contact_form .gform_wrapper li.gfield.gfield_error.phoneNum input.medium, .contact_form .gform_wrapper li.gfield.gfield_error.gfield_contains_required.gfield_creditcard_warning.phoneNum input.medium {
+.contact_form .gform_wrapper li.gfield.name input.medium.error,
+.contact_form .gform_wrapper li.gfield.gfield_contains_required.gfield_creditcard_warning.name input.medium.error {
     background: url(images/bg-input-small-error.png) left top no-repeat;
 }
 
@@ -1022,16 +1021,18 @@ body.page-template-page-location-hire-php .slider_wrapper_inner {
     padding: 0 !important;
 }
 
-.contact_form .gform_wrapper .top_label .gfield_error textarea.textarea {
+.contact_form .gform_wrapper .top_label textarea.textarea.error {
     background: url(images/bg-textarea-error.png) left top no-repeat;
 }
 
-.contact_form .gform_wrapper .top_label .gfield_description.validation_message, .contact_form .gform_wrapper .gfield_description.validation_message {
+.contact_form .gform_wrapper .top_label .gfield_description.validation_message,
+.contact_form .gform_wrapper .gfield_description.validation_message {
     padding: 0 !important;
     margin: 0 !important;
 }
 
-.gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label, .gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container {
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required label.gfield_label,
+.gform_wrapper li.gfield.gfield_error.gfield_contains_required div.ginput_container {
     margin: 0 !important;
 }
 
