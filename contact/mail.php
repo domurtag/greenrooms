@@ -22,7 +22,7 @@ $message";
 smtpmailer($myemail, $email, $name, $subject, $message);
 
 /* Redirect visitor to the thank you page */
-header('Location: index.html');
+header('Location: success.html');
 exit();
 
 function smtpmailer($to, $from, $from_name, $subject, $body) {
