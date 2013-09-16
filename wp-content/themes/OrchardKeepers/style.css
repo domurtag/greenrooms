@@ -410,7 +410,6 @@ hr {
 .news_reviews_box {
     width: 100%;
     overflow: hidden;
-    background: url(images/bg_line.png) center bottom repeat-x;
     padding: 0px 0px 30px 0px;
     margin-bottom: 36px;
 }
