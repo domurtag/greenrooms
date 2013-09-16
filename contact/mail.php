@@ -5,10 +5,10 @@ require 'class.phpmailer.php';
 $myemail = "domurtag@yahoo.co.uk";
 
 /* Check all form inputs using check_input function */
-$name    = check_input($_POST['name'], "Enter your name");
+$name    = check_input($_POST['name'], "Invalid 'name' field");
 $email   = check_input($_POST['email']);
 $subject = "Green Rooms Design feedback from: $name, $email";
-$message = check_input($_POST['message'], "Write your message");
+$message = check_input($_POST['message'], "Invalid 'message' field");
 
 /* If e-mail is not valid show error message */
 if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
@@ -40,7 +40,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
     $mail->Username = 'festivals@festivals.ie';
 
     // TODO don't commit password
-    $mail->Password = '';
+    $mail->Password = 'blackpear1';
     $mail->SetFrom($from, $from_name);
     $mail->Subject = $subject;
     $mail->Body = $body;
