@@ -1,5 +1,5 @@
 ## Introduction
-A website for a design company. The website is entirely static except for some PHP used to send emails.
+A website for a design company. The site is entirely static except for some PHP used to send emails.
 
 ## Installation
 It is assumed that Apache is already installed.
