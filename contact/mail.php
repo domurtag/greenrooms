@@ -30,7 +30,6 @@ header('Location: index.html');
 exit();
 
 function smtpmailer($to, $from, $from_name, $subject, $body) {
-    global $error;
     $mail = new PHPMailer();  // create a new object
     $mail->IsSMTP(); // enable SMTP
     $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
@@ -46,12 +45,8 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
     $mail->Subject = $subject;
     $mail->Body = $body;
     $mail->AddAddress($to);
-    if(!$mail->Send()) {
-        $error = 'Mail error: '.$mail->ErrorInfo;
-        return false;
-    } else {
-        $error = 'Message sent!';
-        return true;
+    if (!$mail->Send()) {
+        show_error($mail->ErrorInfo);
     }
 }
 
