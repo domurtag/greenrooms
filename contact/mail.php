@@ -1,4 +1,6 @@
 <?php
+require 'class.phpmailer.php';
+
 /* Set e-mail recipient, change this to matthewshearer@gmail.com once testing is complete */
 $myemail = "domurtag@yahoo.co.uk";
 
@@ -13,25 +15,46 @@ if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
     show_error("E-mail address not valid");
 }
 /* Let's prepare the message for the e-mail */
-$message = "
-
-Name: $name
+$message = "Name: $name
 E-mail: $email
 Subject: $subject
-
+----------------------------
 Message:
-$message
-
-";
+$message";
 
 /* Send the message using mail() function */
-mail($myemail, $subject, $message);
+smtpmailer($myemail, $email, $name, $subject, $message);
 
 /* Redirect visitor to the thank you page */
 header('Location: index.html');
 exit();
 
-/* Functions we used */
+function smtpmailer($to, $from, $from_name, $subject, $body) {
+    global $error;
+    $mail = new PHPMailer();  // create a new object
+    $mail->IsSMTP(); // enable SMTP
+    $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
+    $mail->SMTPAuth = true;  // authentication enabled
+    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 465;
+    $mail->Username = 'festivals@festivals.ie';
+
+    // TODO don't commit password
+    $mail->Password = '';
+    $mail->SetFrom($from, $from_name);
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+    $mail->AddAddress($to);
+    if(!$mail->Send()) {
+        $error = 'Mail error: '.$mail->ErrorInfo;
+        return false;
+    } else {
+        $error = 'Message sent!';
+        return true;
+    }
+}
+
 function check_input($data, $problem = '')
 {
     $data = trim($data);
