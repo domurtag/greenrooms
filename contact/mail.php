@@ -1,46 +1,50 @@
 <?php
 require 'class.phpmailer.php';
 
-/* Set e-mail recipient, change this to matthewshearer@gmail.com once testing is complete */
-$myemail = "domurtag@yahoo.co.uk";
-
 /* Check all form inputs using check_input function */
 $name    = $_POST['name'];
 $email   = $_POST['email'];
-$subject = "Green Rooms Design feedback from: $name, $email";
+$subject = "Feedback from: $name ($email)";
 $message = $_POST['message'];
 
-/* Let's prepare the message for the e-mail */
-$message = "Sender Name: $name
-Sender E-mail: $email
-----------------------------
-Message:
-$message";
-
-// Send the message using mail() function
 // Consider replacing smtpmailer with the PHP native "mail" function if mail is properly setup on the production server
-smtpmailer($myemail, $email, $name, $subject, $message);
+// TODO replace donal's email with Matt's once testing is finished
+smtpmailer("domurtag@yahoo.co.uk", $email, $name, $subject, $message);
 
 /* Redirect visitor to the thank you page */
 header('Location: success.html');
 exit();
 
-function smtpmailer($to, $from, $from_name, $subject, $body) {
-    $mail = new PHPMailer();
-    $mail->IsSMTP();
-    $mail->SMTPDebug = 2;
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = 'ssl';
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = 465;
-    $mail->Username = 'festivals@festivals.ie';
+function smtpmailer($recipient, $from, $from_name, $subject, $body) {
 
-    // TODO don't commit password
-    $mail->Password = '';
-    $mail->SetFrom($from, $from_name);
+    // the account that sends the emails is not the same as the recipient
+    $sender_email = "greenroomsfeedback@yahoo.ie";
+    $sender_name = "Green Rooms Design Feedback";
+
+    // TODO don't accidentally commit the password
+    $sender_password = "";
+
+    $mail = new PHPMailer();
+
+    $mail->IsSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = "ssl";
+    $mail->Host = "plus.smtp.mail.yahoo.com";
+    $mail->Port = 465;
+    $mail->Username = $sender_email;
+    $mail->Password = $sender_password;
+    $mail->From = $sender_email;
+    $mail->FromName = $sender_name;
+
+    // set the "reply to" address, so that if we reply to the email the reply is sent to the name entered in the form
+    // rather than the account it was sent from
+    $mail->addReplyTo($from, $from_name);
+
+    $mail->AddAddress($recipient);
+
     $mail->Subject = $subject;
     $mail->Body = $body;
-    $mail->AddAddress($to);
+
     if (!$mail->Send()) {
         show_error($mail->ErrorInfo);
     }
