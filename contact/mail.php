@@ -9,7 +9,7 @@ $message = $_POST['message'];
 
 // Consider replacing smtpmailer with the PHP native "mail" function if mail is properly setup on the production server
 // TODO replace donal's email with Matt's once testing is finished
-smtpmailer("domurtag@yahoo.co.uk", $email, $name, $subject, $message);
+smtpmailer("mattheweshearer@gmail.com", $email, $name, $subject, $message);
 
 /* Redirect visitor to the thank you page */
 header('Location: success.html');
@@ -22,7 +22,7 @@ function smtpmailer($recipient, $from, $from_name, $subject, $body) {
     $sender_name = "Green Rooms Design Feedback";
 
     // TODO don't accidentally commit the password
-    $sender_password = "";
+    $sender_password = "S0meBigSecret";
 
     $mail = new PHPMailer();
 
