@@ -1,7 +1,6 @@
 <?php
 require 'class.phpmailer.php';
 
-/* Check all form inputs using check_input function */
 $name    = $_POST['name'];
 $email   = $_POST['email'];
 $subject = "Feedback from: $name ($email)";
