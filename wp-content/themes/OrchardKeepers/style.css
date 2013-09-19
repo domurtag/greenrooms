@@ -50,7 +50,6 @@ h1 {
     font-size: 48px;
     line-height: 48px;
     color: #495767;
-    font-family: 'Veneer';
 }
 
 h2 {
@@ -59,7 +58,6 @@ h2 {
     line-height: 30px;
     text-transform: uppercase;
     margin-bottom: 16px;
-    font-family: 'Veneer';
 }
 
 h3 {
@@ -314,7 +312,6 @@ hr {
     margin: 0px;
     list-style: none;
     background: none;
-    font-family: 'NeutraTextTF-Demi';
     text-transform: uppercase;
 }
 
