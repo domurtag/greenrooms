@@ -1247,3 +1247,7 @@ body.page-template-page-location-hire-php .slider_wrapper_inner {
 .mainnav ul li.page-item-133 {
     display: none;
 }
+
+.home_content {
+    text-align: justify;
+}
