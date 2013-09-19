@@ -554,7 +554,7 @@ hr {
 .slider_wrapper_inner .slider_box .bx-controls-direction a {
     display: block;
     width: 71px;
-    height: 24px;
+    height: 44px;
     text-indent: -9999em;
     position: absolute;
     top: 182px;
@@ -887,10 +887,10 @@ body.page-template-page-location-hire-php .slider_wrapper_inner {
 }
 
 .contact_info ul li {
-    margin: 0 0 20px;
+    margin: 0 0 5px;
     font-size: 15px;
     line-height: 22px;
-    padding: 0 0 0 46px;
+    padding: 5px 0 0 46px;
 }
 
 .followUs {
