@@ -22,7 +22,7 @@ function smtpmailer($recipient, $from, $from_name, $subject, $body) {
     $sender_name = "Green Rooms Design Feedback";
 
     // TODO don't accidentally commit the password
-    $sender_password = "S0meBigSecret";
+    $sender_password = "";
 
     $mail = new PHPMailer();
 
