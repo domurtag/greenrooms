@@ -517,13 +517,13 @@ hr {
 .slider_wrapper_inner {
     width: 100%;
     background: url(images/bg_home_slider_wrapper.png) center top no-repeat;
-    height: 500px;
+    height: 383px;
     overflow: hidden;
     padding: 5px 0px;
 }
 
 .slider_wrapper_inner .slider_box {
-    width: 750px;
+    width: 640px;
     margin: 0px auto;
     position: relative;
 }
