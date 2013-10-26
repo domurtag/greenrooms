@@ -2,19 +2,16 @@
 
 $name = $_POST['name'];
 $from = $_POST['email'];
-$subject = "Feedback from: $name ($from)";
+$subject = "Feedback from: $name";
 $message = $_POST['message'];
-
-// TODO replace donal's email with Matt's once testing is finished
-$recipient = "domurtag@yahoo.co.uk";
-$header = "From: {$from}";
+$recipient = "mattheweshearer@gmail.com";
 
 $headers = "" .
            "Reply-To:" . $from . "\r\n" .
-           "From:" . $name . "\r\n" .
-           "X-Mailer: PHP/" . phpversion();;
+           "From:" . $from . "\r\n" .
+           "X-Mailer: PHP/" . phpversion();
 
-if (!mail($recipient, $subject, $body, $header)) {
+if (!mail($recipient, $subject, $message, $headers)) {
     // TODO error handling
 }
 
